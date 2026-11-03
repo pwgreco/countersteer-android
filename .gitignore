@@ -1,0 +1,19 @@
+# IDE
+.idea/
+
+# Android/Gradle (for when project is scaffolded)
+*.iml
+.gradle/
+local.properties
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Secrets
+*.jks
+*.keystore
+local.properties
+
+# Kotlin compiler daemon logs
+.kotlin/

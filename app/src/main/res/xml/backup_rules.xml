@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Android Auto Backup rules (Android 12+ / API 31+).
+    Backs up Room database, DataStore preferences, and app files.
+    Excludes EncryptedSharedPreferences (device-bound encryption keys
+    would fail on restore to a different device).
+-->
+<cloud-backup-rules>
+    <!-- Include Room database -->
+    <include domain="database" path="." />
+
+    <!-- Include DataStore preferences -->
+    <include domain="file" path="datastore/" />
+
+    <!-- Include any cached route data -->
+    <include domain="file" path="." />
+
+    <!-- Exclude encrypted prefs — encryption keys are device-bound -->
+    <exclude domain="sharedpref" path="secure_prefs.xml" />
+
+    <!-- Exclude MapLibre offline tiles — too large, re-download instead -->
+    <exclude domain="database" path="mbgl-offline.db" />
+    <exclude domain="file" path="mbgl-offline/" />
+
+    <!-- Exclude caches -->
+    <exclude domain="external" path="." />
+</cloud-backup-rules>
